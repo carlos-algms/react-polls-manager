@@ -1,17 +1,21 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 
-import './styles.scss';
+import Routes from './app/routes';
+import store from './app/store';
 
-import Routes from './Routes';
+import './styles.scss';
 
 const history = createBrowserHistory();
 
 render(
-  <Router history={history}>
-    <Routes />
-  </Router>,
+  <Provider store={store}>
+    <Router history={history}>
+      <Routes />
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
