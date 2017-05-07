@@ -7,7 +7,8 @@
     "test": "",
     "start": "webpack-dev-server --port 3000",
     "build": "rimraf dist && webpack --config webpack.production.config.js",
-    "eslint": "eslint ."
+    "eslint": "eslint .",
+    "deploy": "npm run build && surge dist/ --domain react-polls-manager.surge.sh"
   },
   "author": "Carlos A. Gomes <http://carlos-algms.github.io/>",
   "license": "MIT",
