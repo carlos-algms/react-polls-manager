@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import PollFormComponent from './PollFormComponent';
 import ChoicesManager from '../ChoicesManager';
@@ -9,7 +10,11 @@ export default class PoolForm extends Component {
     super(props);
     this.choicesManager = new ChoicesManager();
 
-    this.state = { choices: [this.choicesManager.createNewChoice()] };
+    this.state = {
+      choices: [this.choicesManager.createNewChoice()],
+      isCreated: false,
+      hasErrors: false
+    };
   }
 
   getChoices() {
@@ -55,7 +60,18 @@ export default class PoolForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state);
+    const endPoint = 'http://polls.apiblueprint.org/questions';
+    const data = {
+      question: this.state.question,
+      choices: this.state.choices.map(choice => choice.value)
+    };
+
+    axios.post(endPoint, data)
+      .then(() => this.setState({ isCreated: true }))
+      .catch((error) => {
+        console.error(error);
+        this.setState({ hasErrors: true });
+      });
   }
 
   render() {
@@ -74,6 +90,8 @@ export default class PoolForm extends Component {
         getChoices={getChoices}
         onChoiceInputChange={handleChoiceInputChange}
         onSubmit={handleSubmit}
+        isCreated={this.state.isCreated}
+        hasErrors={this.state.hasErrors}
       />
     );
   }

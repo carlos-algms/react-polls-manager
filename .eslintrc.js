@@ -26,7 +26,7 @@ module.exports = {
     'strict': 0,
     'comma-dangle': 0,
     'no-use-before-define': ['error', { 'functions': false, 'classes': true }],
-    'no-console': ['error', { 'allow': ['warn', 'error', 'info', 'debug', 'log'] }],
+    'no-console': ['error', { 'allow': ['warn', 'error', 'info', 'debug'] }],
     'no-param-reassign': ['error', { 'props': false }],
     'radix': ['error', 'as-needed'],
     'import/no-extraneous-dependencies': 0

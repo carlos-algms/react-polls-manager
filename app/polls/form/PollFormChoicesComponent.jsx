@@ -33,6 +33,7 @@ export default class PollFormChoicesComponent extends Component {
               <div className="mdl-list__item-primary-content">
                 <button
                   type="button"
+                  tabIndex={-1}
                   className="mdl-button mdl-js-button mdl-button--icon mdl-list__item-icon"
                   onClick={() => this.props.onDelChoice(choice)}
                 >
@@ -45,6 +46,8 @@ export default class PollFormChoicesComponent extends Component {
                     type="text"
                     value={choice.value}
                     data-index={i}
+                    data-required
+                    tabIndex={0}
                     onChange={this.props.onChoiceInputChange}
                   />
                   <label htmlFor={`choice${i}`} className="mdl-textfield__label">Choice text</label>
