@@ -20,7 +20,7 @@ export default class PollsList extends Component {
 
   render() {
     return !this.state.isLoaded ? (<div>Loading...</div>) : (
-      <ul className="collection">
+      <ul className="mdl-list">
         {this.state.polls.map(poll => <PollListItem key={poll.url} poll={poll} />)}
       </ul>
     );

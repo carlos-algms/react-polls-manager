@@ -23,6 +23,8 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json', '.scss']
   },
 
+  devtool: 'source-map',
+
   module: {
     rules: [
       {
@@ -49,8 +51,8 @@ module.exports = {
               options: {
                 importLoaders: 1,
                 modules: true,
-                localIdentName: '[name]---[local]---[hash:base64:5]',
-                minimize: true
+                localIdentName: '[local]',
+                minimize: false
               }
             },
             {

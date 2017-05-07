@@ -1,3 +1,12 @@
-html, body {
-  height: 100%;
+
+#new-poll-button {
+  position: fixed;
+  display: block;
+  right: 40px;
+  bottom: 40px;
+  z-index: 900;
+}
+
+.poll-form__choices__choice{
+  padding: 0;
 }
