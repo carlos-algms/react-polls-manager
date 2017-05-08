@@ -15,15 +15,23 @@ class PollsListComponent extends Component {
     isFetching: PropTypes.bool.isRequired,
   };
 
+  static INTERVAL_TIME = 60 * 1000;
+
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchPolls());
+    this.intervalId = setInterval(() =>
+    dispatch(fetchPolls()), PollsListComponent.INTERVAL_TIME);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
   }
 
   render() {
     const { isFetching, polls } = this.props;
     return isFetching ? (<div>Loading...</div>) : (
-      <ul className="mdl-list">
+      <ul className="mdl-list polls-list">
         {polls.map(poll => <PollListItem key={poll.url} poll={poll} />)}
       </ul>
     );

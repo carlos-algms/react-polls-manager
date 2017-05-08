@@ -2,15 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
+import PollsListChoices from './PollsListChoicesComponent';
+
+
 export default function PollsListItem(props) {
   const poll = props.poll;
   return (
     <li className="mdl-list__item mdl-list__item--two-line">
-      <span className="mdl-list__item-primary-content">
-        <i className="material-icons mdl-list__item-avatar">format_list_bulleted</i>
-        <span>{poll.question}</span>
-        <span className="mdl-list__item-sub-title">{poll.choices.length} choices</span>
-      </span>
+      <i className="material-icons mdl-list__item-avatar">format_list_bulleted</i>
+
+      <div className="mdl-list__item-primary-content">
+        <div>{poll.question}</div>
+        <div className="mdl-list__item-sub-title mdl-grid">
+          <PollsListChoices choices={poll.choices} />
+        </div>
+      </div>
     </li>
   );
 }
