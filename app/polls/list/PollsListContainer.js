@@ -5,8 +5,8 @@ import PollsListComponent from './PollsListComponent';
 
 
 const mapStateToProps = state => ({
-  polls: state.polls.polls,
-  isFetching: state.polls.isFetching
+  polls: state.pollsList.polls,
+  isFetching: state.pollsList.isFetching
 });
 
 const mapDispatchToProps = () => ({

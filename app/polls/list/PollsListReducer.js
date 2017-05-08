@@ -1,7 +1,7 @@
-import { REQUEST_POLLS, RECEIVE_POLLS, CREATE_POLL } from './PollsActions';
+import { REQUEST_POLLS, RECEIVE_POLLS } from '../PollsActions';
 
 
-function pollsReducer(state = { isFetching: true, polls: [] }, action) {
+function PollsListReducer(state = { isFetching: true, polls: [] }, action) {
   switch (action.type) {
     case REQUEST_POLLS:
       return Object.assign({}, state, {
@@ -14,13 +14,10 @@ function pollsReducer(state = { isFetching: true, polls: [] }, action) {
         polls: action.polls
       });
 
-    case CREATE_POLL:
-      return [];
-
     default:
       return state;
   }
 }
 
 
-export default pollsReducer;
+export default PollsListReducer;

@@ -44,11 +44,10 @@ export default class PollFormChoicesComponent extends Component {
                     id={`choice${i}`}
                     className="mdl-textfield__input"
                     type="text"
-                    value={choice.value}
                     data-index={i}
                     data-required
                     tabIndex={0}
-                    onChange={this.props.onChoiceInputChange}
+                    onBlur={e => this.props.onChoiceInputChange(e, choice)}
                   />
                   <label htmlFor={`choice${i}`} className="mdl-textfield__label">Choice text</label>
                 </div>

@@ -2,18 +2,21 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
+import { connect } from 'react-redux';
+
 
 import updateMdlJs from '../../utils/updateMdlJs';
 import PollFormChoices from './PollFormChoicesComponent';
 import PollFormErrorModal from './PollFormErrorModalComponent';
 
-export default class PollFormComponent extends Component {
+
+class PollFormComponent extends Component {
 
   static propTypes = {
     onInpuChange: PropTypes.func.isRequired,
     onAddChoice: PropTypes.func.isRequired,
     onDelChoice: PropTypes.func.isRequired,
-    getChoices: PropTypes.func.isRequired,
+    choices: PropTypes.arrayOf(PropTypes.object).isRequired,
     onChoiceInputChange: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
     isCreated: PropTypes.bool.isRequired,
@@ -47,14 +50,14 @@ export default class PollFormComponent extends Component {
               id="question"
               name="question"
               tabIndex={0}
-              onChange={this.props.onInpuChange}
+              onBlur={this.props.onInpuChange}
             />
             <label className="mdl-textfield__label" htmlFor="question">Question</label>
           </div>
         </div>
 
         <PollFormChoices
-          choices={this.props.getChoices()}
+          choices={this.props.choices}
           onAddChoice={this.props.onAddChoice}
           onDelChoice={this.props.onDelChoice}
           onChoiceInputChange={this.props.onChoiceInputChange}
@@ -73,3 +76,5 @@ export default class PollFormComponent extends Component {
     );
   }
 }
+
+export default connect()(PollFormComponent);

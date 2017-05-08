@@ -3,11 +3,11 @@ import { Route } from 'react-router';
 
 import App from './';
 import HomePage from '../home/HomePage';
-import PollForm from '../polls/form';
+import PollFormContainer from '../polls/form/PollFormContainer';
 
 export default () => (
   <App>
     <Route exact path="/" component={HomePage} />
-    <Route exact path="/polls" component={PollForm} />
+    <Route exact path="/polls" component={PollFormContainer} />
   </App>
 );

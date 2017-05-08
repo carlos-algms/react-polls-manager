@@ -5,9 +5,9 @@ export default class Choicesmanager {
     this.lastChoiceId = 0;
   }
 
-  createNewChoice() {
+  createNewChoice(value = '') {
     this.lastChoiceId += 1;
-    return { id: this.lastChoiceId, value: '' };
+    return { id: this.lastChoiceId, value };
   }
 
   deleteChoice(choices, choiceToDelete) {
