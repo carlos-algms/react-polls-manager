@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import PollList from '../polls/list/PollsList';
+import PollListContainer from '../polls/list/PollsListContainer';
 
 export default () => (
   <div>
@@ -13,6 +13,6 @@ export default () => (
       <i className="material-icons">add</i>
     </Link>
 
-    <PollList />
+    <PollListContainer />
   </div>
 );
